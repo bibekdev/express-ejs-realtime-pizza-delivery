@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "watch": "npx tailwind -i ./public/css/tailwind.css -o ./public/css/app.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +21,10 @@
     "mongoose": "^6.8.0"
   },
   "devDependencies": {
+    "@material-tailwind/html": "^1.2.3",
     "dotenv": "^16.0.3",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "tailwindcss": "^3.2.4"
   }
 }
