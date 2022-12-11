@@ -5,7 +5,10 @@ const morgan = require('morgan')
 const ejsLayout = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const cartRoutes = require('./routes/cart')
+
 const app = express()
+
 app.use(ejsLayout)
 app.set('views', 'views')
 app.set('view engine', 'ejs')
@@ -22,6 +25,7 @@ app.use(morgan('dev'))
 app.get('/', (req, res) => {
   res.render('home')
 })
+app.use('/', cartRoutes)
 
 mongoose.set('strictQuery', true)
 mongoose
