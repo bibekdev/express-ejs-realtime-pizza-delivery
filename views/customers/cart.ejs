@@ -1,50 +1,34 @@
 <div class="px-24 bg-neutral-100 pt-7">
-  <!-- <div class="text-center ">
-    <img src="/images/empty-cart.png" class="w-[650px] mx-auto" alt="empty-cart">
-    <a href="/" class="inline-block py-3 mb-9 text-xl font-semibold text-white bg-orange-600 rounded-full mt-[30px] px-7 hover:bg-orange-700">Back to Home</a>
-  </div> -->
 
+  <% if (session.cart) { %>
   <div>
     <h1 class="mb-8 text-3xl font-bold">Your cart</h1>
+    <% for( let pizza of Object.values(session.cart.items)) { %>
     <div class="flex items-center justify-between py-4 mb-3 bg-white rounded-lg px-14">
       <div>
-        <img src="/images/piz1.jpg" class="w-32" alt="pizza">
+        <img src="/images/<%= pizza.item.image %>" class="w-32" alt="pizza">
       </div>
       <div>
-        <h1 class="text-2xl font-bold">Heading</h1>
+        <h1 class="text-2xl font-bold"><%= pizza.item.name %></h1>
       </div>
       <div>
-        <h6 class="px-4 py-1 text-white rounded-full bg-neutral-500">Badge</h6>
+        <h6 class="px-4 py-1 text-white rounded-full bg-neutral-500"><%= pizza.item.size %></h6>
       </div>
       <div>
-        <p class="text-xl">1 pcs</p>
+        <p class="text-xl"><%= pizza.qty %> pcs</p>
       </div>
       <div>
-        <h2 class="text-xl font-bold">Rs. 300</h1>
+        <h2 class="text-xl font-bold">Rs. <%= pizza.item.price * pizza.qty %></h1>
       </div>
     </div>
+    <% } %>
 
-    <div class="flex items-center justify-between py-4 mb-3 bg-white rounded-lg px-14">
-      <div>
-        <img src="/images/piz1.jpg" class="w-32" alt="pizza">
-      </div>
-      <div>
-        <h1 class="text-2xl font-bold">Heading</h1>
-      </div>
-      <div>
-        <h6 class="px-4 py-1 text-white rounded-full bg-neutral-500">Badge</h6>
-      </div>
-      <div>
-        <p class="text-xl">1 pcs</p>
-      </div>
-      <div>
-        <h2 class="text-xl font-bold">Rs. 300</h1>
-      </div>
-    </div>
     <div class="flex items-center justify-between mt-5">
       <div></div>
       <div>
-        <h1 class="mb-5 text-2xl font-bold text-right">Total Amount: Rs. <span class="text-orange-600">300</span></h1>
+        <h1 class="mb-5 text-2xl font-bold text-right">Total Amount: Rs. <span class="text-orange-600">
+            <%= session.cart.totalPrice  %>
+          </span></h1>
         <form class="flex flex-col mb-[72px] space-y-5">
           <input type="text" class="px-4 py-3 w-72 focus:outline-none ring-1 ring-orange-600" placeholder="Your Address">
           <button type="submit" class="px-6 py-3 font-semibold text-white bg-orange-600">Place Order</button>
@@ -53,4 +37,14 @@
       </div>
     </div>
   </div>
+  <% } else { %>
+  <div class="text-center ">
+    <img src="/images/empty-cart.png" class="w-[650px] mx-auto" alt="empty-cart">
+    <a href="/" class="inline-block py-3 mb-9 text-xl font-semibold text-white bg-orange-600 rounded-full mt-[30px] px-7 hover:bg-orange-700">Back to Home</a>
+  </div>
+  <% } %>
+
+  <!--  -->
+
+
 </div>

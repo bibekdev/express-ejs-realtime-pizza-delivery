@@ -1,0 +1,15 @@
+<div class="p-5 space-y-3 bg-white rounded-xl">
+  <div>
+    <img src="/images/<%= pizza.image %> " class="mx-auto h-60" alt="pizza">
+  </div>
+  <div class="flex items-center justify-around space-x-9">
+    <h3 class="text-2xl font-bold"><%= pizza.name %></h3>
+    <p class="px-4 py-1 text-sm text-white rounded-full bg-neutral-500"><%= pizza.size %> </p>
+  </div>
+  <div class="flex items-center justify-around pt-5">
+    <h2 class="text-2xl font-bold">Rs. <%= pizza.price %> </h2>
+    <button data-pizza="<%= JSON.stringify(pizza) %> " class="px-6 py-2 text-white transition-colors bg-orange-600 rounded-full add-to-cart hover:bg-orange-700">
+      Add to Cart
+    </button>
+  </div>
+</div>
