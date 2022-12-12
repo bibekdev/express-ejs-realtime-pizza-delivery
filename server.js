@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cartRoutes = require('./routes/cart')
 const homeRoutes = require('./routes/home')
+const userRoutes = require('./routes/user')
 
 const app = express()
 
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 })
 app.use('/', homeRoutes)
 app.use('/', cartRoutes)
+app.use('/', userRoutes)
 
 mongoose.set('strictQuery', true)
 mongoose
