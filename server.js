@@ -2,6 +2,7 @@ const express = require('express')
 // const data = require('./data')
 require('dotenv').config()
 const morgan = require('morgan')
+const flash = require('express-flash')
 const session = require('express-session')
 const mongoStore = require('connect-mongo')
 const ejsLayout = require('express-ejs-layouts')
@@ -36,6 +37,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(morgan('dev'))
+app.use(flash())
 
 // global middleware
 app.use((req, res, next) => {

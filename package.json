@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "argon2": "^0.30.2",
     "axios": "^1.2.1",
     "body-parser": "^1.20.1",
     "connect-mongo": "^4.6.0",

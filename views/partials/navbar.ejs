@@ -8,8 +8,12 @@
     <ul class="flex items-center space-x-5 font-semibold font-large">
       <li><a href="/" class="transition-all hover:text-orange-600">Home</a></li>
       <li><a href="/" class="transition-all hover:text-orange-600">Menu</a></li>
+      <% if (session.user) { %>
+      <li><a href="/logout" class="transition-all hover:text-orange-600">Logout</a></li>
+      <% } else { %>
       <li><a href="/login" class="transition-all hover:text-orange-600">Login</a></li>
       <li><a href="/register" class="transition-all hover:text-orange-600">Register</a></li>
+      <% } %>
       <li><a href="/cart" class="flex items-center justify-center px-4 py-2 space-x-2 text-white transition-colors bg-orange-600 rounded-full hover:bg-orange-700">
           <span id="cart-counter">
             <%= session.cart ? session.cart.totalQty : 0  %>
